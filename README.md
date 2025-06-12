@@ -63,12 +63,12 @@ A modern SaaS-style landing page with sign-up, email verification, and lead stor
 ---
 
 ## 🔗 Useful Links & References
---🌐 [Tailwind CSS](https://tailwindcss.com/)
---📦 [Nodemailer](https://nodemailer.com/about/)
---☁️ [MongoDB Atlas](https://www.mongodb.com/products/platform/atlas-database)
---🚀 [Render Deployment Guide](https://render.com/docs/deploy-node-express-app)
---🎨 [Font Awesome](https://fontawesome.com/)
---🔤 [Google Fonts](https://fonts.google.com/)
---📝 [EJS Templating](https://ejs.co/)
+- 🌐 [Tailwind CSS](https://tailwindcss.com/)
+- 📦 [Nodemailer](https://nodemailer.com/about/)
+- ☁️ [MongoDB Atlas](https://www.mongodb.com/products/platform/atlas-database)
+- 🚀 [Render Deployment Guide](https://render.com/docs/deploy-node-express-app)
+- 🎨 [Font Awesome](https://fontawesome.com/)
+- 🔤 [Google Fonts](https://fonts.google.com/)
+- 📝 [EJS Templating](https://ejs.co/)
 
 ---

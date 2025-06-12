@@ -52,11 +52,11 @@ A modern SaaS-style landing page with sign-up, email verification, and lead stor
 2. **Install dependencies**
    npm install
 3. **Create a .env file in the root directory:**
-   PORT=3000
-   MONGO_URI=your_mongodb_connection_string
-   EMAIL_USER=your_email@gmail.com
-   EMAIL_PASS=your_gmail_app_password
-   BASE_URL=https://your-app.onrender.com
+   PORT=3000  
+   MONGO_URI=your_mongodb_connection_string  
+   EMAIL_USER=your_email@gmail.com  
+   EMAIL_PASS=your_gmail_app_password  
+   BASE_URL=https://your-app.onrender.com  
 4. **Run the server locally**
    node server.js
 

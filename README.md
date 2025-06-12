@@ -47,7 +47,7 @@ A modern SaaS-style landing page with sign-up, email verification, and lead stor
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/GreenSaaS-Landing-Page.git
+   git clone https://github.com/ArchieP27/GreenSaaS-Landing-Page.git
    cd GreenSaaS-Landing-Page
 2. **Install dependencies**
    npm install

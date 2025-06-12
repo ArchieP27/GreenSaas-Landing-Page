@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="logo.ico" type="image/x-icon">
+  <title>Welcome to GreenSaaS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center">
+  <div class="bg-white rounded-xl shadow-md overflow-hidden max-w-md w-full">
+    <div class="bg-gradient-to-r from-indigo-600 to-green-500 p-6 text-white text-center">
+      <h1 class="text-2xl font-bold">Welcome to GreenSaaS!</h1>
+    </div>
+    <div class="p-8">
+      <div class="text-center mb-6">
+        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-check text-green-500 text-2xl"></i>
+        </div>
+        <h2 class="text-xl font-semibold mb-2">Email Verified Successfully</h2>
+        <% if (user) { %>
+          <p class="text-gray-600">Welcome, <span class="font-medium"><%= user.name %></span>!</p>
+          <p class="text-gray-600 mt-1"><%= user.email %></p>
+        <% } %>
+      </div>
+      <div class="space-y-4">
+        <a href="/" class="block bg-indigo-600 text-white text-center py-2 rounded-md hover:bg-indigo-700 transition">
+          Go to Dashboard
+        </a>
+        <a href="#" class="block text-center text-indigo-600 hover:underline">
+          Read Documentation
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

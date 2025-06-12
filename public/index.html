@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="logo.ico" type="image/x-icon">
+  <title>GreenSaaS - Modern Lead Capture Solution</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            primary: {
+              DEFAULT: '#4F46E5',
+              dark: '#4338CA'
+            },
+            secondary: {
+              DEFAULT: '#10B981',
+              dark: '#059669'
+            }
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+
+
+<body class="bg-white text-gray-800 font-sans transition-colors duration-300 dark:bg-gray-900 dark:text-white">
+  <div class="fixed inset-0 -z-10 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-white via-blue-50 to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-800 opacity-100"></div>
+    <div class="absolute inset-0 bg-[url('https://assets-global.website-files.com/5f4ec532319820f7c2ccd7a8/62b7f6a0d5b4a1a4c0b7c8b6_noise.png')] opacity-5 dark:opacity-10"></div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+          <i class="fas fa-leaf text-white"></i>
+        </div>
+        <h1 class="text-2xl font-display font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">GreenSaaS</h1>
+      </div>
+      <nav class="hidden md:flex gap-8 items-center">
+        <a href="#features" class="font-medium hover:text-primary transition-colors">Features</a>
+        <a href="#how" class="font-medium hover:text-primary transition-colors">How It Works</a>
+        <a href="#pricing" class="font-medium hover:text-primary transition-colors">Pricing</a>
+        <a href="#testimonials" class="font-medium hover:text-primary transition-colors">Testimonials</a>
+        <button onclick="document.documentElement.classList.toggle('dark')" class="ml-4 w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+          <i class="fas fa-moon dark:hidden"></i>
+          <i class="fas fa-sun hidden dark:block"></i>
+        </button>
+      </nav>
+      <div class="md:hidden text-2xl cursor-pointer">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section with Signup Form -->
+  <section class="relative overflow-hidden py-24 px-6 text-center">
+    <div class="absolute -top-20 -right-20 w-96 h-96 bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-10 dark:opacity-20 animate-pulse-slow"></div>
+    <div class="absolute -bottom-20 -left-20 w-96 h-96 bg-secondary rounded-full mix-blend-multiply filter blur-3xl opacity-10 dark:opacity-20 animate-pulse-slow"></div>
+    
+    <div class="max-w-4xl mx-auto relative z-10">
+      <div class="inline-flex items-center gap-2 bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-full mb-6">
+        <span class="w-2 h-2 bg-secondary rounded-full animate-pulse"></span>
+        <span class="text-sm font-medium">Now with AI-powered lead scoring</span>
+        <i class="fas fa-arrow-right ml-1 text-xs"></i>
+      </div>
+      
+      <h1 class="text-5xl md:text-6xl font-display font-bold mb-6 leading-tight">
+        <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Supercharge</span> Your Lead Generation
+      </h1>
+      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
+        Capture, verify, and convert more leads with our all-in-one platform. Get started in minutes, not days.
+      </p>
+      
+      <!-- Signup Form -->
+    <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden p-8">
+      <h2 class="text-2xl font-bold text-center mb-6">Start Your Free Trial</h2>
+      <form id="signupForm" class="space-y-4">
+        <div>
+          <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+          <input type="text" id="name" name="name" required
+                 class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+          <input type="email" id="email" name="email" required
+                 class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+        </div>
+        <div>
+          <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+          <input type="password" id="password" name="password" required minlength="8"
+                 class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+        </div>
+        <button type="submit" id="submitBtn"
+                class="w-full bg-indigo-600 text-white py-3 rounded-md hover:bg-indigo-700 transition flex items-center justify-center">
+          <span>Get Started</span>
+          <span id="spinner" class="ml-2 hidden">
+            <i class="fas fa-spinner fa-spin"></i>
+          </span>
+        </button>
+      </form>
+      <div id="formMessage" class="mt-4 text-center hidden"></div>
+    </div>
+  </section>
+
+  <!-- Logo Cloud -->
+  <div class="py-12 bg-gray-50 dark:bg-gray-800/50">
+    <div class="max-w-7xl mx-auto px-6">
+      <p class="text-center text-gray-500 dark:text-gray-400 mb-8">Trusted by innovative teams at</p>
+      <div class="flex flex-wrap justify-center gap-12 items-center opacity-70">
+        <img src="https://logo.clearbit.com/slack.com" alt="Slack" class="h-8 dark:invert opacity-80">
+        <img src="https://logo.clearbit.com/airbnb.com" alt="Airbnb" class="h-8 dark:invert opacity-80">
+        <img src="https://logo.clearbit.com/spotify.com" alt="Spotify" class="h-8 dark:invert opacity-80">
+        <img src="https://logo.clearbit.com/dropbox.com" alt="Dropbox" class="h-8 dark:invert opacity-80">
+        <img src="https://logo.clearbit.com/notion.so" alt="Notion" class="h-8 dark:invert opacity-80">
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <section id="features" class="py-20 px-6 max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="inline-block px-4 py-2 bg-secondary/10 text-secondary rounded-full font-medium mb-4">Features</span>
+      <h2 class="text-4xl font-display font-bold mb-4">Everything You Need to Grow</h2>
+      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Powerful tools designed to help you capture and convert more leads than ever before.</p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up">
+      <div class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100 dark:border-gray-700">
+        <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 text-primary">
+          <i class="fas fa-check-double text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3">Smart Verification</h3>
+        <p class="text-gray-600 dark:text-gray-300">Automatically verify emails in real-time to reduce bounce rates and improve deliverability.</p>
+      </div>
+      
+      <div class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100 dark:border-gray-700">
+        <div class="w-14 h-14 bg-secondary/10 rounded-xl flex items-center justify-center mb-6 text-secondary">
+          <i class="fas fa-bolt text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3">Instant Onboarding</h3>
+        <p class="text-gray-600 dark:text-gray-300">Get new leads into your funnel immediately with our seamless integration options.</p>
+      </div>
+      
+      <div class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100 dark:border-gray-700">
+        <div class="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 text-purple-500">
+          <i class="fas fa-chart-line text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3">AI Lead Scoring</h3>
+        <p class="text-gray-600 dark:text-gray-300">Our AI analyzes lead behavior to prioritize your hottest opportunities.</p>
+      </div>
+      
+      <div class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100 dark:border-gray-700">
+        <div class="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 text-blue-500">
+          <i class="fas fa-shield-alt text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3">Enterprise Security</h3>
+        <p class="text-gray-600 dark:text-gray-300">Military-grade encryption keeps your data safe and compliant with regulations.</p>
+      </div>
+      
+      <div class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100 dark:border-gray-700">
+        <div class="w-14 h-14 bg-pink-500/10 rounded-xl flex items-center justify-center mb-6 text-pink-500">
+          <i class="fas fa-random text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3">Workflow Automation</h3>
+        <p class="text-gray-600 dark:text-gray-300">Create custom automation rules to nurture leads without manual work.</p>
+      </div>
+      
+      <div class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100 dark:border-gray-700">
+        <div class="w-14 h-14 bg-orange-500/10 rounded-xl flex items-center justify-center mb-6 text-orange-500">
+          <i class="fas fa-headset text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3">24/7 Support</h3>
+        <p class="text-gray-600 dark:text-gray-300">Our team is always available to help you get the most from GreenSaaS.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how" class="py-20 px-6 bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full font-medium mb-4">How It Works</span>
+        <h2 class="text-4xl font-display font-bold mb-4">Simple Yet Powerful</h2>
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Get set up in minutes and start seeing results immediately.</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="relative" data-aos="fade-up" data-aos-delay="100">
+          <div class="absolute -top-6 -left-6 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg z-10">1</div>
+          <div class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg h-full pt-14 border border-gray-100 dark:border-gray-700">
+            <h3 class="text-xl font-bold mb-3">Capture Leads</h3>
+            <p class="text-gray-600 dark:text-gray-300">Use our beautiful forms, API, or integrations to collect leads from any source.</p>
+          </div>
+        </div>
+        
+        <div class="relative" data-aos="fade-up" data-aos-delay="200">
+          <div class="absolute -top-6 -left-6 w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg z-10">2</div>
+          <div class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg h-full pt-14 border border-gray-100 dark:border-gray-700">
+            <h3 class="text-xl font-bold mb-3">Verify & Enrich</h3>
+            <p class="text-gray-600 dark:text-gray-300">We automatically verify emails and enrich lead data with additional information.</p>
+          </div>
+        </div>
+        
+        <div class="relative" data-aos="fade-up" data-aos-delay="300">
+          <div class="absolute -top-6 -left-6 w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg z-10">3</div>
+          <div class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg h-full pt-14 border border-gray-100 dark:border-gray-700">
+            <h3 class="text-xl font-bold mb-3">Convert & Grow</h3>
+            <p class="text-gray-600 dark:text-gray-300">Send leads to your CRM or marketing tools and watch your business grow.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="py-20 px-6 max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="inline-block px-4 py-2 bg-secondary/10 text-secondary rounded-full font-medium mb-4">Testimonials</span>
+      <h2 class="text-4xl font-display font-bold mb-4">What Our Customers Say</h2>
+      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Don't just take our word for it - hear from our happy customers.</p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700" data-aos="zoom-in">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sneha M." class="w-full h-full object-cover">
+          </div>
+          <div>
+            <h4 class="font-bold">Sneha M.</h4>
+            <p class="text-sm text-gray-500">Marketing Director</p>
+          </div>
+        </div>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">"GreenSaaS has transformed our lead generation process. We're seeing 3x more qualified leads with half the effort."</p>
+        <div class="flex text-yellow-400">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+      
+      <div class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700" data-aos="zoom-in" data-aos-delay="100">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Atul Kumar" class="w-full h-full object-cover">
+          </div>
+          <div>
+            <h4 class="font-bold">Atul Kumar</h4>
+            <p class="text-sm text-gray-500">Tech Founder</p>
+          </div>
+        </div>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">"The email verification alone has saved us thousands in wasted ad spend. Worth every penny!"</p>
+        <div class="flex text-yellow-400">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+      
+      <div class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700" data-aos="zoom-in" data-aos-delay="200">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya M." class="w-full h-full object-cover">
+          </div>
+          <div>
+            <h4 class="font-bold">Priya M.</h4>
+            <p class="text-sm text-gray-500">Growth Manager</p>
+          </div>
+        </div>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">"Implementation took less than an hour and we saw immediate results. The customer support is exceptional too."</p>
+        <div class="flex text-yellow-400">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-20 px-6 bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full font-medium mb-4">Pricing</span>
+        <h2 class="text-4xl font-display font-bold mb-4">Simple, Transparent Pricing</h2>
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Choose the plan that fits your needs. No hidden fees, ever.</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border-2 border-gray-200 dark:border-gray-700" data-aos="fade-up">
+          <h3 class="text-xl font-bold mb-2">Starter</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-6">Perfect for small teams getting started</p>
+          <div class="mb-6">
+            <span class="text-4xl font-bold">$29</span>
+            <span class="text-gray-500">/month</span>
+          </div>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span>1,000 leads/month</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span>Email verification</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span>Basic integrations</span>
+            </li>
+            <li class="flex items-center text-gray-400">
+              <i class="fas fa-times text-gray-300 mr-2"></i>
+              <span>No AI lead scoring</span>
+            </li>
+          </ul>
+          <a href="#" class="block w-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-center py-3 rounded-lg font-medium transition-colors">Get Started</a>
+        </div>
+        
+        <div class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-xl border-2 border-primary relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+          <div class="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-lg">POPULAR</div>
+          <h3 class="text-xl font-bold mb-2">Professional</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-6">For growing businesses with more leads</p>
+          <div class="mb-6">
+            <span class="text-4xl font-bold">$99</span>
+            <span class="text-gray-500">/month</span>
+          </div>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span>10,000 leads/month</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span>Advanced verification</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span>All integrations</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span>AI lead scoring</span>
+            </li>
+          </ul>
+          <a href="#" class="block w-full bg-primary hover:bg-primary-dark text-white text-center py-3 rounded-lg font-medium transition-colors">Get Started</a>
+        </div>
+        
+        <div class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border-2 border-gray-200 dark:border-gray-700" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="text-xl font-bold mb-2">Enterprise</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-6">For large teams with custom needs</p>
+          <div class="mb-6">
+            <span class="text-4xl font-bold">Custom</span>
+          </div>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span>Unlimited leads</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span>Premium verification</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span>White-glove onboarding</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span>Dedicated support</span>
+            </li>
+          </ul>
+          <a href="#" class="block w-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-center py-3 rounded-lg font-medium transition-colors">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section id="signup" class="py-20 px-6 bg-gradient-to-r from-primary to-secondary text-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl font-display font-bold mb-6">Ready to transform your lead generation?</h2>
+      <p class="text-xl mb-8 opacity-90">Join thousands of businesses growing faster with GreenSaaS.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#" class="bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-lg font-bold shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+          Start Free 14-Day Trial <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+        <a href="#" class="bg-transparent border-2 border-white hover:bg-white/10 px-8 py-4 rounded-lg font-bold shadow-sm hover:shadow-md transition-all">
+          <i class="fas fa-calendar-alt mr-2"></i> Book a Demo
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-6 bg-gray-900 text-gray-400">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-4 gap-12 mb-12">
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+              <i class="fas fa-leaf text-white"></i>
+            </div>
+            <h3 class="text-xl font-display font-bold text-white">GreenSaaS</h3>
+          </div>
+          <p class="mb-4">The all-in-one lead capture and verification platform for modern businesses.</p>
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-white font-bold mb-4">Product</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-white transition-colors">Features</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Pricing</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Integrations</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Updates</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-white font-bold mb-4">Company</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-white transition-colors">About</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-white font-bold mb-4">Resources</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">API Docs</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Community</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Webinars</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+        <p>© 2023 GreenSaaS. All rights reserved.</p>
+        <div class="flex gap-6 mt-4 md:mt-0">
+          <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+          <a href="#" class="hover:text-white transition-colors">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+    document.getElementById('signupForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const form = e.target;
+      const submitBtn = document.getElementById('submitBtn');
+      const spinner = document.getElementById('spinner');
+      const messageDiv = document.getElementById('formMessage');
+      
+      // Show loading state
+      submitBtn.disabled = true;
+      spinner.classList.remove('hidden');
+      messageDiv.classList.add('hidden');
+      
+      try {
+        const response = await fetch('/signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name: form.name.value,
+            email: form.email.value,
+            password: form.password.value
+          })
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok) {
+          messageDiv.textContent = data.message;
+          messageDiv.className = 'mt-4 text-center text-green-600';
+          form.reset();
+        } else {
+          messageDiv.textContent = data.error || 'An error occurred';
+          messageDiv.className = 'mt-4 text-center text-red-600';
+        }
+      } catch (error) {
+        messageDiv.textContent = 'Network error. Please try again.';
+        messageDiv.className = 'mt-4 text-center text-red-600';
+      } finally {
+        messageDiv.classList.remove('hidden');
+        submitBtn.disabled = false;
+        spinner.classList.add('hidden');
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -50,8 +50,9 @@ A modern SaaS-style landing page with sign-up, email verification, and lead stor
    git clone https://github.com/ArchieP27/GreenSaaS-Landing-Page.git
    cd GreenSaaS-Landing-Page
 2. **Install dependencies**
+   ```bash
    npm install
-3. **Create a .env file in the root directory:**  
+4. **Create a .env file in the root directory:**  
    ```bash
    PORT=3000  
    MONGO_URI=your_mongodb_connection_string  
@@ -59,6 +60,7 @@ A modern SaaS-style landing page with sign-up, email verification, and lead stor
    EMAIL_PASS=your_gmail_app_password  
    BASE_URL=https://your-app.onrender.com  
 5. **Run the server locally**
+   ```bash
    node server.js
 
 ---

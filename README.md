@@ -1,6 +1,6 @@
 # 🌿 GreenSaaS Landing Page
 
-A modern SaaS-style landing page with sign-up, email verification, and lead storage using MongoDB.
+A modern SaaS-style landing page with sign-up and email verification.
 
 ![screenshot](ss.png)
 

@@ -1,7 +1,6 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
-const nodemailer = require("nodemailer");
 const bcrypt = require("bcryptjs");
 const path = require("path");
 const validator = require("validator");
@@ -23,23 +22,6 @@ mongoose.connect(process.env.MONGO_URI)
 // User Model
 const User = require("./models/User");
 
-// Email Transport
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false, // Use false for 587
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS, // Keep using: jrsciawzjdpwtscm
-  },
-  tls: {
-    // This helps the handshake succeed on cloud networks
-    ciphers: 'SSLv3',
-    rejectUnauthorized: false
-  },
-  connectionTimeout: 40000, // Giving it plenty of time
-});
-
 // Routes
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
@@ -53,18 +35,14 @@ app.post("/signup", async (req, res) => {
     if (!name || !email || !password) {
       return res.status(400).json({ error: "All fields are required" });
     }
-
     if (!validator.isEmail(email)) {
       return res.status(400).json({ error: "Invalid email format" });
     }
-
     if (password.length < 8) {
-      return res
-        .status(400)
-        .json({ error: "Password must be at least 8 characters" });
+      return res.status(400).json({ error: "Password must be at least 8 characters" });
     }
 
-    // Check for existing user
+    // Check existing user
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ error: "Email already registered" });
@@ -79,48 +57,22 @@ app.post("/signup", async (req, res) => {
       email,
       password: hashedPassword,
     });
-
     await user.save();
 
-    // Send verification email
-    try{
+    // Generate verification link
     const verificationLink = `${process.env.BASE_URL}/verify?id=${user._id}`;
 
-    await transporter.sendMail({
-      from: `GreenSaaS <${process.env.EMAIL_USER}>`,
-      to: email,
-      subject: "Verify Your Email Address",
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px;">
-          <h2 style="color: #4F46E5; text-align: center;">Welcome to GreenSaaS!</h2>
-          <p style="margin: 20px 0;">Hi ${name},</p>
-          <p>Please verify your email address to complete your registration:</p>
-          <div style="text-align: center; margin: 30px 0;">
-            <a href="${verificationLink}" style="background-color: #4F46E5; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; display: inline-block; font-weight: bold;">
-              Verify Email
-            </a>
-          </div>
-          <p>Or copy and paste this link into your browser:</p>
-          <p style="word-break: break-all; background-color: #f8fafc; padding: 10px; border-radius: 4px; font-size: 14px;">
-            ${verificationLink}
-          </p>
-          <p style="margin-top: 30px;">If you didn't create an account with GreenSaaS, you can safely ignore this email.</p>
-        </div>
-      `,
-    });
-    }catch(mailError){
-      console.error("Email failed to send, but user was created:", mailError.message);
-    }
+    // **Log the verification link to console instead of sending email**
+    console.log(`\n✅ Verification link for ${email}: ${verificationLink}\n`);
 
     res.json({
       success: true,
-      message: "Verification email sent. Please check your inbox.",
+      message: "Signup successful. Verification link logged in server console.",
     });
+
   } catch (error) {
     console.error("Signup error:", error);
-    res
-      .status(500)
-      .json({ error: "An error occurred during signup. Please try again." });
+    res.status(500).json({ error: "An error occurred during signup. Please try again." });
   }
 });
 
@@ -137,9 +89,7 @@ app.get("/verify", async (req, res) => {
     );
 
     if (!user) {
-      return res
-        .status(404)
-        .render("error", { message: "Invalid verification link" });
+      return res.status(404).render("error", { message: "Invalid verification link" });
     }
 
     res.render("dashboard", {
@@ -151,9 +101,7 @@ app.get("/verify", async (req, res) => {
     });
   } catch (error) {
     console.error("Verification error:", error);
-    res
-      .status(500)
-      .render("error", { message: "An error occurred during verification" });
+    res.status(500).render("error", { message: "An error occurred during verification" });
   }
 });
 

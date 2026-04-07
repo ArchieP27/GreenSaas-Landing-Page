@@ -26,16 +26,18 @@ const User = require("./models/User");
 // Email Transport
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
-  port: 465,
-  secure: true, 
+  port: 587,
+  secure: false, // Use false for 587
   auth: {
     user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS, // This will now use your new app password
+    pass: process.env.EMAIL_PASS, // Keep using: jrsciawzjdpwtscm
   },
   tls: {
-    rejectUnauthorized: false // Helps bypass Render-to-Google handshake blocks
+    // This helps the handshake succeed on cloud networks
+    ciphers: 'SSLv3',
+    rejectUnauthorized: false
   },
-  connectionTimeout: 30000,
+  connectionTimeout: 40000, // Giving it plenty of time
 });
 
 // Routes

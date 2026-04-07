@@ -26,15 +26,16 @@ const User = require("./models/User");
 // Email Transport
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
-  port: 465,               // Port 465 is for SSL
-  secure: true,            // Must be true for port 465
+  port: 465,
+  secure: true, 
   auth: {
     user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS, // Ensure this is a 16-character App Password
+    pass: process.env.EMAIL_PASS, // This will now use your new app password
   },
-  connectionTimeout: 20000, // Increased to 20s for Render's network
-  greetingTimeout: 20000,
-  socketTimeout: 20000,
+  tls: {
+    rejectUnauthorized: false // Helps bypass Render-to-Google handshake blocks
+  },
+  connectionTimeout: 30000,
 });
 
 // Routes

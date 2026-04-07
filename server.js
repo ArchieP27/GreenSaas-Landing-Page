@@ -80,6 +80,7 @@ app.post("/signup", async (req, res) => {
     await user.save();
 
     // Send verification email
+    try{
     const verificationLink = `${process.env.BASE_URL}/verify?id=${user._id}`;
 
     await transporter.sendMail({
@@ -104,6 +105,9 @@ app.post("/signup", async (req, res) => {
         </div>
       `,
     });
+    }catch(mailError){
+      console.error("Email failed to send, but user was created:", mailError.message);
+    }
 
     res.json({
       success: true,
